@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/joho/godotenv"
 	"log"
 	"truchain-core/networking"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -18,7 +19,7 @@ func main() {
 	}
 	log.Print("Node IP: " + ip)
 
-	resp, err := networking.GetIPLocation(ip)
+	resp, err := networking.IpApiGetIPLocation(ip)
 	if err != nil {
 		log.Fatal(err)
 	}
