@@ -1,28 +1,18 @@
 package main
 
 import (
+	"encoding/json"
 	"log"
-	"truchain-core/networking"
-
-	"github.com/joho/godotenv"
+	"truchain-core/wallet"
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
-	ip, err := networking.GetCurrentNodeIP()
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Print("Node IP: " + ip)
-
-	resp, err := networking.IpApiGetIPLocation(ip)
+	response, err := wallet.GenerateWallet()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	log.Print("Node Location: " + resp.City)
+	data, _ := json.MarshalIndent(response, "", "  ")
+
+	log.Print(string(data))
 }

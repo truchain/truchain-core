@@ -8,4 +8,5 @@ require (
 	github.com/etcd-io/etcd v3.3.25+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/joho/godotenv v1.3.0 // indirect
+	golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a
 )
